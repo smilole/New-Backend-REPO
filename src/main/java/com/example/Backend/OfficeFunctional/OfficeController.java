@@ -49,7 +49,7 @@ public class OfficeController {
                     .body(e);
         }
     }
-    @GetMapping("/{id}/getall")
+    /*@GetMapping("/{id}/getall")
     public ResponseEntity<?> getAll(@RequestHeader(name = "Authorization") String Authorization, @PathVariable UUID id){
         String tokenValue = Authorization.split(" ")[1];
         try {
@@ -59,6 +59,21 @@ public class OfficeController {
         catch (Exception e){
             return ResponseEntity
                     .status(400).body(e);
+        }
+    }*/
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getinfo(@RequestHeader(name = "Authorization") String Authorization, @PathVariable UUID id){
+        String tokenValue = Authorization.split(" ")[1];
+        try {
+            return ResponseEntity
+                    .ok()
+                    .body(iOfficeService.allinfo(tokenValue, id));
+        }
+        catch (Exception e){
+            return ResponseEntity
+                    .status(400)
+                    .body(e);
         }
     }
 }
