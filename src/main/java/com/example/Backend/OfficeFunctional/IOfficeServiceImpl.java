@@ -66,6 +66,10 @@ public class IOfficeServiceImpl implements IOfficeService {
             if(userAppointmentDTO.getRole() == null || userAppointmentDTO.getRole().equals("")){
                 throw new AppException(400, "Поле роль не может быть пустым");
             }
+            //тут нужно сделать проверку не был ли пользователь добавлен раньше
+            if(userToOfficeRepository.findByUserIdAndOfficeId(userAppointmentDTO.getId(),Officeid).isPresent()){
+                throw new AppException(400, "Пользователь уже добавлен в данный офис");
+            }
             UserEntity newUserEntity = userRepository.findById(userAppointmentDTO.getId()).get();
             UserToOffice userToOffice = new UserToOffice(newUserEntity, officeRepository.findById(Officeid).get(), userAppointmentDTO.getRole());
             userToOfficeRepository.save(userToOffice);

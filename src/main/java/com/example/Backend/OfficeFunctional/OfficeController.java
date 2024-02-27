@@ -1,5 +1,6 @@
 package com.example.Backend.OfficeFunctional;
 
+import com.example.Backend.Errors.AppException;
 import com.example.Backend.UserFunctional.UserAppointmentDTO;
 import com.example.Backend.UserFunctional.UserDTO;
 import lombok.RequiredArgsConstructor;

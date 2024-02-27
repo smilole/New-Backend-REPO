@@ -11,4 +11,5 @@ import java.util.UUID;
 public interface UserToOfficeRepository extends JpaRepository<UserToOffice, UUID> {
     Optional<UserToOffice> findByUserId(UUID userid);
     Optional<List<UserToOffice>> findAllByOfficeId(UUID officeid);
+    Optional<UserToOffice> findByUserIdAndOfficeId(UUID userid, UUID officeid);
 }
