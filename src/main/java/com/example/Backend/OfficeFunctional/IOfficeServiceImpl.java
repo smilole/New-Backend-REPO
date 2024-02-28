@@ -66,7 +66,6 @@ public class IOfficeServiceImpl implements IOfficeService {
             if(userAppointmentDTO.getRole() == null || userAppointmentDTO.getRole().equals("")){
                 throw new AppException(400, "Поле роль не может быть пустым");
             }
-            if(userToOfficeRepository.)
             UserEntity newUserEntity = userRepository.findById(userAppointmentDTO.getId()).get();
             UserToOffice userToOffice = new UserToOffice(newUserEntity, officeRepository.findById(Officeid).get(), userAppointmentDTO.getRole());
             userToOfficeRepository.save(userToOffice);

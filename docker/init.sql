@@ -1,0 +1,5 @@
+CREATE USER postgresAdmin WITH PASSWORD 1;
+
+CREATE DATABASE tsu-keys;
+
+GRANT ALL PRIVILEGES ON DATABASE tsu-keys TO postgresAdmin;
